@@ -1,0 +1,359 @@
+/* Reset básico e fontes */
+html {
+    background: #0d021a;
+    scrollbar-gutter: stable both-edges;
+}
+
+:root {
+    --section-border: rgba(124, 58, 237, 0.12);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e7eb;
+    background: transparent;
+}
+
+/* Customizar Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.85);
+    border-radius: 10px;
+    border: 2px solid rgba(13, 2, 26, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 1);
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.6);
+}
+* {
+    scrollbar-color: rgba(147, 51, 234, 0.85) transparent;
+    scrollbar-width: thin;
+}
+
+/* Container da animação de fundo */
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Barra de Navegação Superior */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background-color: rgba(13, 2, 26, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar .logo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(147, 51, 234, 0.5);
+    object-fit: cover;
+}
+
+.navbar .logo span {
+    color: #9333ea;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #9333ea;
+}
+
+/* Seção Hero */
+.hero {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Responsive navbar: mobile styles */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 880px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+    .navbar .logo {
+        font-size: 1.1em;
+        gap: 8px;
+    }
+    .navbar .logo img {
+        height: 34px;
+        width: 34px;
+    }
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 8px;
+    }
+    .navbar .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 12px;
+        background: rgba(8,0,25,0.95);
+        border: 1px solid rgba(124,58,237,0.12);
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 160px;
+        box-shadow: 0 8px 30px rgba(3,0,10,0.5);
+        z-index: 50;
+    }
+    .navbar.open .nav-links {
+        display: flex;
+    }
+    .navbar .nav-links a {
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+}
+
+/* Container principal para unificar fundo e espaçamento */
+.main-container {
+    background: rgba(8, 0, 25, 0);
+    border-top: 1px solid var(--section-border);
+}
+
+/* Estilos gerais para as seções dentro do container */
+.main-container section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.main-container section h2 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 60px;
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+}
+
+/* Seção Projetos */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* CÓDIGO FINAL E CORRETO PARA OS CARDS */
+.projeto-card {
+    /* --- FUNDO RESTAURADO AQUI --- */
+    background: rgba(25, 0, 51, 0.6); /* O fundo roxo semitransparente */
+    border: 1px solid rgba(147, 51, 234, 0.3); /* A borda sutil */
+    backdrop-filter: blur(10px); /* O efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    /* A borda fica mais forte no hover */
+    border-color: rgba(147, 51, 234, 0.8);
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3); /* Sombra que já existia */
+}
+
+/* A sombra no texto não é mais necessária, pois o card tem fundo */
+.projeto-card h3,
+    background: rgba(25, 0, 51, 0.6);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.projeto-logo {
+    margin-bottom: 20px;
+}
+
+.projeto-logo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(147, 51, 234, 0.5);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.projeto-card:hover .projeto-logo img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.projeto-card h3 {
+    font-size: 1.5em;
+    margin: 20px 0 15px 0;
+    color: #fff;
+}
+
+.projeto-card p {
+    color: #b4b4d4;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgba(147, 51, 234, 0.8);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(147, 51, 234, 0.8);
+    margin-top: auto; /* força o botão para o rodapé do card */
+}
+
+.btn:hover {
+    background: rgba(147, 51, 234, 1);
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.6);
+}
+
+/* Seção Sobre e Contato */
+.sobre, .contato {
+    text-align: center;
+}
+
+.sobre p, .contato p {
+    font-size: 1.2em;
+    color: #b4b4d4;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ícones de Contato */
+.contact-icons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.icon-link svg {
+    width: 36px;
+    height: 36px;
+}
+
+.icon-link .icon-label {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.icon-link:hover {
+    transform: translateY(-4px);
+    color: #e9e6ff;
+}
+
+/* Barra de busca */
+.hero-search {
+    width: 100%;
+    max-width: 700px; /* Limita a largura da barra de busca */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hero-search input[type="search"] {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 18px 28px;
+    font-size: 1.15rem;
+    border-radius: 16px;
+    border: 2px solid rgba(124,58,237,0.22);
+    background: rgba(255,255,255,0.035);
+    color: #fff;
+    box-shadow: 0 8px 40px rgba(3,0,10,0.7), inset 0 -1px 0 rgba(255,255,255,0.02);
+    outline: none;
+    transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+
+.hero-search input[type="search"]::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.hero-search input[type="search"]:focus {
+    border-color: rgba(124,58,237,0.9);
+    box-shadow: 0 12px 45px rgba(124,58,237,0.12);
+    transform: translateY(-2px);
+}

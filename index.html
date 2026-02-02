@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocha Projetos - Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fundo animado -->
+    <div id="vanta-bg"></div>
+
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Rocha Projetos">
+            Rocha <span>Projetos</span>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="22" height="2" rx="1" fill="currentColor"></rect>
+                <rect y="7" width="22" height="2" rx="1" fill="currentColor"></rect>
+                <rect y="14" width="22" height="2" rx="1" fill="currentColor"></rect>
+            </svg>
+        </button>
+        <div class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Seção Início -->
+    <section id="inicio" class="hero">
+        <div class="hero-search">
+            <input type="search" id="project-search" placeholder="Buscar projetos por título ou descrição..." aria-label="Buscar projetos">
+        </div>
+    </section>
+
+    <!-- Container Principal para o resto do conteúdo -->
+    <div class="main-container">
+        <!-- Seção Projetos -->
+        <section id="projetos" class="projetos">
+            <h2>Projetos</h2>
+            <div class="projetos-grid">
+                <div class="projeto-card">
+                    <div class="projeto-logo">
+                        <img src="minecoin.png" alt="Projeto 1">
+                    </div>
+                    <h3>Marketplace-Free</h3>
+                    <p>Bem-vindo ao repositório do MarketPlace Free! Este projeto oferece um site e aplicativo para baixar DLCs de mapas, texturas, addons e skins para Minecraft, tudo de forma totalmente gratuita. Atualmente, o projeto está na versão Beta.</p>
+                        <a href="https://minecraftbedrockpro.github.io/Marketplace-Free/" class="btn" target="_blank" rel="noopener noreferrer">Ver Mais</a>
+                </div>
+
+                <div class="projeto-card">
+                    <div class="projeto-logo">
+                        <img src="ml.png" alt="Projeto 2">
+                    </div>
+                    <h3>Launcher Minecraft</h3>
+                    <p>Sem muitos detalhes ainda está em versão beta, android e windows, em breve talvez linux, contem gerenciador de pacotes texturas, mundos, addons, skins tudo pelo launcher e importação direta.</p>
+                        <a href="https://discord.gg/AFBQBRJ7nN" class="btn" target="_blank" rel="noopener noreferrer">Ver Mais</a>
+                </div>
+
+                <div class="projeto-card">
+                    <div class="projeto-logo">
+                        <img src="logo.png" alt="Projeto 3">
+                    </div>
+                    <h3>Discord Minecraft</h3>
+                    <p>Servidor Oficial do Rocha Projetos de Minecraft, fazemos Realms com historia e minigames e outros para versão bedrock, e servidor estamos no aguardo de um lucro do realms para isso.</p>
+                        <a href="https://discord.gg/WMVSbM6B8j" class="btn" target="_blank" rel="noopener noreferrer">Ver Mais</a>
+                </div>
+
+                <!-- Projeto 4 removido -->
+            </div>
+        </section>
+
+            
+
+        <!-- Seção Sobre removida -->
+
+        <!-- Seção Contato -->
+        <section id="contato" class="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato via:</p>
+            <div class="contact-icons">
+                <a href="https://discord.gg/ptb2rassjr" aria-label="Discord" class="icon-link" title="Discord" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 71 55" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+                        <path d="M60.104 4.552A58.86 58.86 0 0046.93.5a41.35 41.35 0 00-1.99 4.06 55.64 55.64 0 00-15.86 0A41.28 41.28 0 0026.09.5 58.87 58.87 0 0012.9 4.55C4.28 20.03 1.38 34.12 4.09 47.95a59.59 59.59 0 0018.1 8.9c1.37-.96 2.59-1.97 3.66-3.05-3.38-1.02-6.6-2.7-9.45-4.95 0 0 .86-.5 2.48-1.45 4.51 3.2 9.3 4.74 14.8 5.02 4.99-.28 9.77-1.82 14.29-5.02 1.6.95 2.47 1.45 2.47 1.45-2.86 2.25-6.08 3.93-9.47 4.95 1.09 1.13 2.32 2.16 3.7 3.12A59.69 59.69 0 0066 47.95c2.63-17.86-.52-31.95-8.14-43.4zM23.72 37.3c-3.08 0-5.6-2.82-5.6-6.28 0-3.45 2.48-6.27 5.6-6.27 3.14 0 5.68 2.83 5.6 6.27 0 3.46-2.46 6.28-5.6 6.28zm23.56 0c-3.08 0-5.6-2.82-5.6-6.28 0-3.45 2.48-6.27 5.6-6.27 3.14 0 5.68 2.83 5.6 6.27 0 3.46-2.46 6.28-5.6 6.28z"/>
+                    </svg>
+                    <span class="icon-label">Discord</span>
+                </a>
+
+                <a href="https://github.com/minecraftbedrockpro/rochaprojects_wiki/issues" aria-label="GitHub" class="icon-link" title="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.5 5.64.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.10-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 012.87-.39c.98 0 1.97.13 2.88.39 2.18-1.5 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.77 1.08.77 2.18 0 1.57-.01 2.83-.01 3.22 0 .3.21.66.79.55A11.51 11.51 0 0023.5 12C23.5 5.64 18.35.5 12 .5z"/>
+                    </svg>
+                    <span class="icon-label">GitHub</span>
+                </a>
+
+                <a href="https://www.youtube.com/@technoraidd" aria-label="YouTube" class="icon-link" title="YouTube" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+                        <path d="M23.498 6.186a2.994 2.994 0 00-2.11-2.116C19.344 3.5 12 3.5 12 3.5s-7.344 0-9.388.57A2.994 2.994 0 00.502 6.186 31.67 31.67 0 000 12a31.67 31.67 0 00.502 5.814 2.994 2.994 0 002.11 2.116C4.656 20.5 12 20.5 12 20.5s7.344 0 9.388-.57a2.994 2.994 0 002.11-2.116A31.67 31.67 0 0024 12a31.67 31.67 0 00-.502-5.814zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+                    </svg>
+                    <span class="icon-label">YouTube</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
