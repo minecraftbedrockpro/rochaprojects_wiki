@@ -9,7 +9,9 @@
                 }
             } catch (e) { /* ignore */ }
 
-            window._vantaEffect = VANTA.NET({
+            // adjust spacing based on devicePixelRatio to keep visual density consistent
+            const dpr = (window.devicePixelRatio && Number(window.devicePixelRatio)) || 1;
+            const baseOptions = {
                 el: "#vanta-bg",
                 mouseControls: true,
                 touchControls: true,
@@ -22,9 +24,11 @@
                 backgroundColor: 0x0d021a,
                 points: 10.00,
                 maxDistance: 28.00,
-                spacing: 22.00,
+                spacing: Math.round(22.00 * dpr),
                 speed: 0.7
-            });
+            };
+
+            window._vantaEffect = VANTA.NET(baseOptions);
         } else {
             setTimeout(start, 250);
         }
@@ -70,10 +74,35 @@
         return card;
     }
 
-    // Função para carregar o JSON
+    // Renderiza uma lista de produtos (array)
+    function renderProductsArray(produtos) {
+        container.innerHTML = '';
+        if (!produtos || produtos.length === 0) {
+            container.innerHTML = '<div class="error">Nenhum produto encontrado.</div>';
+            return;
+        }
+        produtos.forEach(produto => {
+            const card = criarCardProduto(produto);
+            container.appendChild(card);
+        });
+    }
+
+    // Expor uma função global para receber dados (usada pelo módulo Firebase)
+    window.loadProductsFromObject = function(obj) {
+        // obj pode ser { produtos: [...] } ou já um array
+        if (!obj) return;
+        if (Array.isArray(obj)) return renderProductsArray(obj);
+        if (obj.produtos && Array.isArray(obj.produtos)) return renderProductsArray(obj.produtos);
+        // se for um objeto com chaves numeradas
+        if (typeof obj === 'object') {
+            const arr = Object.values(obj);
+            return renderProductsArray(arr);
+        }
+    };
+
+    // Função para carregar o JSON local (fallback)
     function carregarJSON() {
-        // buscar o arquivo marketplace.json que está na mesma pasta deste HTML
-        fetch('./marketplace.json')
+        return fetch('./marketplace.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Erro ao carregar JSON: ${response.status}`);
@@ -81,38 +110,53 @@
                 return response.json();
             })
             .then(data => {
-                // Limpar o container
-                container.innerHTML = '';
-
-                // Verificar se há produtos
-                if (!data.produtos || data.produtos.length === 0) {
-                    container.innerHTML = '<div class="error">Nenhum produto encontrado.</div>';
-                    return;
+                if (data && (data.produtos || Array.isArray(data))) {
+                    window.loadProductsFromObject(data);
+                    return true;
                 }
-
-                // Criar um card para cada produto
-                data.produtos.forEach(produto => {
-                    const card = criarCardProduto(produto);
-                    container.appendChild(card);
-                });
+                return false;
             })
             .catch(error => {
-                console.error('Erro ao carregar produtos:', error);
-                container.innerHTML = `
-                    <div class="error">
-                        Erro ao carregar produtos. Verifique se o arquivo "marketplace.json" existe na mesma pasta e está no formato correto.
-                        <br><br>
-                        <small>Erro: ${error.message}</small>
-                    </div>
-                `;
+                console.error('Erro ao carregar produtos (fallback):', error);
+                // não mostrar mensagem de erro ao usuário — manter loader até dados chegarem
+                return false;
             });
     }
 
-    // Carregar os produtos quando o DOM estiver pronto
+    // Expor carregarJSON como fallback global
+    window.carregarJSONFallback = carregarJSON;
+
+    // Mostrar loader (texto + spinner) — permanece até que loadProductsFromObject seja chamado
+    function showLoader() {
+        container.innerHTML = `<div class="loading"><div class="spinner" aria-hidden="true"></div><div class="loading-text">Carregando produtos...</div></div>`;
+    }
+
+    // Quando Firebase ou fallback chamam loadProductsFromObject, eles devem limpar esta flag
+    const fallbackDelay = 1800; // ms — esperar o Firebase antes de usar arquivo local
+    let fallbackTimer = null;
+
+    // sobrescrever loadProductsFromObject para limpar timer e renderizar
+    const originalLoad = window.loadProductsFromObject;
+    window.loadProductsFromObject = function(obj){
+        if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
+        // se original existe (por algum motivo), preferir chamar a nossa render
+        if (originalLoad) originalLoad(obj);
+        else {
+            // fallback render if needed
+            if (Array.isArray(obj)) renderProductsArray(obj);
+            else if (obj && obj.produtos) renderProductsArray(obj.produtos);
+        }
+    };
+
+    // iniciar loader e agendar fallback local
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        carregarJSON();
+        showLoader();
+        fallbackTimer = setTimeout(()=>{ carregarJSON(); fallbackTimer = null; }, fallbackDelay);
     } else {
-        document.addEventListener('DOMContentLoaded', carregarJSON);
+        document.addEventListener('DOMContentLoaded', ()=>{
+            showLoader();
+            fallbackTimer = setTimeout(()=>{ carregarJSON(); fallbackTimer = null; }, fallbackDelay);
+        });
     }
 })();
 
