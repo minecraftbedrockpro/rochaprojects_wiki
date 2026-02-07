@@ -1,0 +1,48 @@
+{
+  "espadadima": [
+    { "nome": "Afiação", "nivel": "V" },
+    { "nome": "Pilhagem", "nivel": "III" },
+    { "nome": "Aspecto de Fogo", "nivel": "II" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "picaretadima": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "III" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "machadodima": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "III" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "padima": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "III" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "espadadima_soberano": [
+    { "nome": "Afiação", "nivel": "V" },
+    { "nome": "Pilhagem", "nivel": "V" },
+    { "nome": "Aspecto de Fogo", "nivel": "II" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "picaretadima_soberano": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "V" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "machadodima_soberano": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "V" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "padima_soberano": [
+    { "nome": "Eficiência Instantânea", "nivel": "∞" },
+    { "nome": "Fortune", "nivel": "V" },
+    { "nome": "Indestrutível", "nivel": "∞" }
+  ],
+  "helmet_soberano": [],
+  "chestplate_soberano": [],
+  "leggings_soberano": [],
+  "boots_soberano": []
+}
